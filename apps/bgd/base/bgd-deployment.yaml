@@ -5,7 +5,7 @@ metadata:
   labels:
     app: bgd
   name: bgd
-  namespace: bgd
+  namespace: developer-dave
 spec:
   replicas: 1
   selector:
@@ -19,15 +19,16 @@ spec:
         app: bgd
     spec:
       containers:
-      - image: quay.io/redhatworkshops/bgd:latest
-        name: bgd
-        env:
-        - name: COLOR
-          value: "blue"
-        resources: {}
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-              - ALL
+        - image: quay.io/redhatworkshops/bgd:latest
+          name: bgd
+          env:
+            - name: COLOR
+              value: "blue"
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
 ---
+
